@@ -4,8 +4,8 @@
 *The terminal output below demonstrates that the board successfully booted and printed the initialization messages alongside a continuous counting sequence via UART.*
 
 **Video Link:**
-<!-- 🎥 Replace empty link with your video link showing the live scrolling output -->
-![UART Video](C:\Users\adity\Desktop\RISC_V_Submission\vsdsquadron-mini-core\task2\submission\UART_Check.mp4)
+<!-- 🎥 Video showing the live scrolling output -->
+<video src="./UART_Check.mp4" controls="controls" width="600"></video>
 
 ---
 
@@ -13,8 +13,8 @@
 *The evidence below shows the onboard LED blinking periodically, mapped to the correct firmware settings.*
 
 **Video Link:**
-<!-- 🎥 Replace empty link with your video tracking the toggling LED -->
-![GPIO Blinking Video](C:\Users\adity\Desktop\RISC_V_Submission\vsdsquadron-mini-core\task2\submission\GPIO_Check.mp4)
+<!-- 🎥 Video tracking the toggling LED -->
+<video src="./GPIO_Check.mp4" controls="controls" width="600"></video>
 
 ---
 
