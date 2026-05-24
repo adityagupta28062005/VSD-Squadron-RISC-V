@@ -2,21 +2,24 @@
 
 ## 1. Application Hardware Execution
 
-**Hardware Verification**:
-> *(The demo requires no jumping wires. It proves Input `gpio_read()` works by verifying internal pull-up and pull-down states mathematically matching expected logic. It proves Output functions `gpio_set()`, `gpio_clear()`, and `gpio_toggle()` by enacting a complex 2-Phase pattern (Strobe + S-O-S Morse Code) on the Onboard LED.)*
+### What was verified on hardware
+- **Input (Read) Verification**: Verified that `gpio_read()` accurately reads the state of internal pull-up (HIGH) and pull-down (LOW) configurations on pin PC4 without requiring physical jumper wires.
+- **Output Verification**: Verified that `gpio_toggle()`, `gpio_set()`, and `gpio_clear()` successfully and reliably manipulate the onboard LED connected to PD6. This was demonstrated physically by producing a mathematically precise Rapid Strobe (using toggle) and an S-O-S Morse Code sequence (using set and clear).
 
 **Video / Photo Link**:
-> *(Click the link below to watch the video showing the VSDSquadron Mini board powered on, with the onboard LED (PD6) physically displaying the Rapid Strobe followed by the S-O-S morse code pattern).*
 
 [🎥 Watch Hardware Execution Video](./Task3_HW_evidence.mp4)
 
 ## 2. UART Logs
 
-**Explanation**:
-> *(The logs below prove that the C code correctly read the internal pull-up/pull-down states without a wire attached to PC4. The logs also correctly trace the looping behavior of the detailed LED sequence outputting to PD6).*
+### Explanation: How the application uses the library
+The application code (`main.c`) strictly relies on the implemented custom library (`gpio.h` / `gpio.c`) for all hardware interactions. No direct register modifications exist in the application code.
+1. It uses `gpio_init()` to initialize the system core clocks for the requested ports, configure PC4 as an input, and PD6 as a push-pull output.
+2. It uses `gpio_read()` to capture and print the logic level of PC4 over UART, proving the inputs work.
+3. It uses `gpio_toggle()` inside `for` loops to rapidly invert the state of PD6, achieving the Strobe effect.
+4. It uses explicit `gpio_set()` to turn on PD6 and `gpio_clear()` to turn off PD6 at specific timings to create the Morse Code pattern.
 
 **Screenshot**:
-> *(Screenshot of PlatformIO serial monitor showing the Input test and full cycle of the Pattern output).*
 
 ![UART Logs Screenshot](./Task3_terminal_evidence.png)
 

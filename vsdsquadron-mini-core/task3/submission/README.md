@@ -11,8 +11,7 @@ This task demonstrates the creation of a reusable, modular peripheral driver lib
 ### API Reference
 
 | API Function | Description |
-
-|---|---|
+|--------------|-------------|
 | `void gpio_init(GPIO_Port_TypeDef port, uint8_t pin, GPIO_Mode_TypeDef mode)` | Initializes a specific GPIO pin (input/output/pullup/open-drain). Clocks are automatically enabled. |
 | `void gpio_set(GPIO_Port_TypeDef port, uint8_t pin)` | Sets an output pin to a HIGH state. |
 | `void gpio_clear(GPIO_Port_TypeDef port, uint8_t pin)` | Clears an output pin to a LOW state. |
